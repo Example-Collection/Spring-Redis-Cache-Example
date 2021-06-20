@@ -1,5 +1,6 @@
 package com.template
 
+import com.template.user.dto.UserInfoResponseDto
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.cache.RedisCacheManagerBuilderCustomizer
 import org.springframework.boot.runApplication
@@ -7,6 +8,7 @@ import org.springframework.cache.annotation.EnableCaching
 import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 import org.springframework.data.redis.cache.RedisCacheConfiguration
+import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -41,6 +43,12 @@ class Application {
     fun jedis(): Jedis {
         return Jedis()
     }
+
+    @Bean
+    fun userRedisTemplate(): RedisTemplate<String, UserInfoResponseDto> {
+        return RedisTemplate<String, UserInfoResponseDto>()
+    }
+
 }
 fun main(args: Array<String>) {
     runApplication<Application>(*args)
