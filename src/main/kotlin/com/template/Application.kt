@@ -2,23 +2,16 @@ package com.template
 
 import com.template.domain.user.User
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.cache.RedisCacheManagerBuilderCustomizer
 import org.springframework.boot.runApplication
-import org.springframework.cache.annotation.EnableCaching
 import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing
-import org.springframework.data.redis.cache.RedisCacheConfiguration
 import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
-import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import redis.clients.jedis.Jedis
-import java.time.Duration
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableCaching
+//@EnableCaching
 class Application {
     @Bean
     fun passwordEncoder(): BCryptPasswordEncoder {

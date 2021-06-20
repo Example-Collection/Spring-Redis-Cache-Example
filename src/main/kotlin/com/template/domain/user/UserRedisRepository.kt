@@ -1,6 +1,5 @@
 package com.template.domain.user
 
-import com.template.user.dto.UserInfoResponseDto
 import org.springframework.data.redis.core.HashOperations
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Repository

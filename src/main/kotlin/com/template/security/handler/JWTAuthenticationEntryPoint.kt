@@ -30,9 +30,9 @@ class JWTAuthenticationEntryPoint : AuthenticationEntryPoint {
 
     private fun convertObjectToJson(obj: Any): String? {
         if (obj == null) {
-            return null;
+            return null
         }
         val mapper = ObjectMapper()
-        return mapper.writeValueAsString(obj);
+        return mapper.writeValueAsString(obj)
     }
 }

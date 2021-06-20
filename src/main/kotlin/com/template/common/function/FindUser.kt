@@ -22,7 +22,6 @@ class FindUser : Supplier<User> {
     override fun get(): User {
         val userId = Integer.parseInt((SecurityContextHolder.getContext().authentication.principal as UserDetailsImpl).username)
         val cachedUser = userRedisRepository.findById(userId)
-        print(cachedUser)
         return if(cachedUser == null) {
             val user = userRepository.findById(userId).orElseThrow { UserUnAuthorizedException() }
             userRedisRepository.save(user)
