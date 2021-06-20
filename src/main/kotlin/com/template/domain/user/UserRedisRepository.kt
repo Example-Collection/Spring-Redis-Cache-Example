@@ -7,20 +7,20 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class UserRedisRepository(
-    userRedisTemplate: RedisTemplate<String, UserInfoResponseDto>
+    userRedisTemplate: RedisTemplate<String, User>
 ) {
 
-    private var hashOperations: HashOperations<String, String, UserInfoResponseDto>? = null
+    private var hashOperations: HashOperations<String, String, User>? = null
 
     init {
         hashOperations = userRedisTemplate.opsForHash()
     }
 
-    fun save(dto: UserInfoResponseDto) {
-        hashOperations?.put("USER", dto.userId.toString(), dto)
+    fun save(user: User) {
+        hashOperations?.put("USER", user.id!!.toString(), user)
     }
 
-    fun findById(userId: Int): UserInfoResponseDto? {
+    fun findById(userId: Int): User? {
         return hashOperations?.get("USER", userId.toString())
     }
 }
