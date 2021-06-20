@@ -32,7 +32,7 @@ dependencies {
     implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
-    implementation("redis.clients:jedis:2.8.0")
+    implementation("redis.clients:jedis:3.6.0")
     testImplementation(kotlin("test-junit"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("junit:junit:4.13.1")
