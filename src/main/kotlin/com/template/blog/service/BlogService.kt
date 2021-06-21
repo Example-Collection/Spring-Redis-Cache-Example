@@ -18,5 +18,4 @@ class BlogService(
         val blog = blogRepository.findById(blogId).orElseThrow { BlogIdNotFoundException() }
         return BlogDetailResponseDto(blog)
     }
-
 }

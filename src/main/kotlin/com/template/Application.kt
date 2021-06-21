@@ -7,7 +7,6 @@ import org.springframework.cache.annotation.EnableCaching
 import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 import org.springframework.data.redis.cache.RedisCacheConfiguration
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -36,7 +35,7 @@ class Application {
     @Bean
     fun redisCacheManagerBuilder(): RedisCacheManagerBuilderCustomizer {
         return RedisCacheManagerBuilderCustomizer { builder ->
-            builder.withCacheConfiguration("blogCache", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(10)))
+            builder.withCacheConfiguration("blog", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(1)))
         }
     }
 
