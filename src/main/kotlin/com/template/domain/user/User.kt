@@ -1,12 +1,11 @@
 package com.template.domain.user
 
 import com.template.domain.common.CreatedAtEntity
-import java.io.Serializable
 import javax.persistence.*
 
 @Entity
 @Table(name = "users")
-class User(name: String, email: String, password: String): CreatedAtEntity(), Serializable {
+class User(name: String, email: String, password: String): CreatedAtEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "user_id")
