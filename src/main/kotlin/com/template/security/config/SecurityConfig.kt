@@ -47,6 +47,7 @@ class SecurityConfig(private val jwtTokenUtil: JwtTokenUtil, private val authent
         web?.ignoring()
             ?.mvcMatchers(HttpMethod.POST, "/v1/auth/update-token")
             ?.mvcMatchers(HttpMethod.POST, "/v1/auth/login")
+            ?.mvcMatchers(HttpMethod.GET, "/v1/blog/**")
             ?.mvcMatchers(HttpMethod.GET, "/swagger-ui/**")
     }
 
