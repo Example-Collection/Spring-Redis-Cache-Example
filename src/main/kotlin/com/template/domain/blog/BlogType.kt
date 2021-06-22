@@ -1,5 +1,6 @@
 package com.template.domain.blog
 
-enum class BlogType {
+
+    enum class BlogType {
     GENERAL, NOTIFICATION, INFORMATION
 }
